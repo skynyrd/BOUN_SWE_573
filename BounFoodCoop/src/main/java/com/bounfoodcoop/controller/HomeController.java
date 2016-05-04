@@ -39,7 +39,7 @@ public class HomeController {
     @RequestMapping("/product/id/{productId}")
     public String viewProduct(@PathVariable String productId, Model model) throws IOException {
         ProductDocument product = productService.getById(UUID.fromString(productId));
-        model.addAttribute(product);
+        model.addAttribute("product", product);
         return "views/productDetail";
     }
 

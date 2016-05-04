@@ -82,7 +82,7 @@
                 </tr>
                 </thead>
 
-                <div th:each="product : ${products}">
+                <div th:each="product : ${products.productRepresentationList}">
                     <tr>
                         <td><img src="$" alt="image"/></td>
                         <td th:text="${product.name}"></td>

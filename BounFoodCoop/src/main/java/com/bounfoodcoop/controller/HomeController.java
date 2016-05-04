@@ -1,6 +1,10 @@
 package com.bounfoodcoop.controller;
 
-import com.bounfoodcoop.domain.ProductDocument;
+import com.bounfoodcoop.domain.Category;
+import com.bounfoodcoop.domain.Product;
+import com.bounfoodcoop.domain.ProductStatus;
+import com.bounfoodcoop.domain.representation.ProductListRepresentation;
+import com.bounfoodcoop.domain.representation.ProductRepresentation;
 import com.bounfoodcoop.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,23 +27,22 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(Model model){
-        ProductDocument promotedProduct = productService.getPromotedProduct("Kars Gravyeri");
-        model.addAttribute("promoted", promotedProduct);
+        Product promotedProduct = productService.getPromotedProduct("Kars Gravyeri");
+        model.addAttribute("promoted", new ProductRepresentation(promotedProduct));
         return "views/index";
     }
 
     @RequestMapping("/productList")
     public String getAllProducts(Model model){
-        List<ProductDocument> allProducts = productService.getAllProducts();
-
-        model.addAttribute("products", allProducts);
+        List<Product> allProducts = productService.getAllProducts();
+        model.addAttribute("products", new ProductListRepresentation(allProducts));
         return "views/productList";
     }
 
     @RequestMapping("/product/id/{productId}")
     public String viewProduct(@PathVariable String productId, Model model) throws IOException {
-        ProductDocument product = productService.getById(UUID.fromString(productId));
-        model.addAttribute("product", product);
+        Product product = productService.getById(UUID.fromString(productId));
+        model.addAttribute("product", new ProductRepresentation(product));
         return "views/productDetail";
     }
 
@@ -50,18 +53,18 @@ public class HomeController {
 
     @RequestMapping("/admin/productInventory")
     public String productInventory(Model model){
-        List<ProductDocument> products = productService.getAllProducts();
-        model.addAttribute("products", products);
+        List<Product> products = productService.getAllProducts();
+        model.addAttribute("products", new ProductListRepresentation(products));
         return "views/adminProductList";
     }
 
     @RequestMapping("/admin/productInventory/addProduct")
     public String addProduct(Model model){
-        ProductDocument product = new ProductDocument();
-        product.setCategory("Beyaz Et");
-        product.setStatus("Aktif");
+        Product product = new Product();
+        product.setCategory(Category.WHITE_MEAT);
+        product.setStatus(ProductStatus.ACTIVE);
 
-        model.addAttribute("product", product);
+        model.addAttribute("product", new ProductRepresentation(product));
 
         return "views/addProduct";
     }

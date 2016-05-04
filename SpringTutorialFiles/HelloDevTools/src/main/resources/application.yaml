@@ -1,0 +1,9 @@
+homecontroller:
+ msg: "Hello from YAML configuration"
+
+myconfig:
+ app-name: My App Name
+ app-description: ${myconfig.app-name} is a Spring Boot Application
+ admin-first-name: skynyrd
+ admin-last-name: foobar
+ adminEmail: asd@asd.com

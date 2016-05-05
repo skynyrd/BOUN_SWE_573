@@ -22,5 +22,4 @@ public @Data class ProductDocument extends DocumentObject {
     private int unitInStock;
     private int status;
     private String city;
-    private Date createdAt;
 }

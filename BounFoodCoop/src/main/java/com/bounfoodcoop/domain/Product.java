@@ -12,7 +12,7 @@ import java.util.UUID;
 public @Data class Product extends BaseDomainObject<ProductDocument> {
 
     private String name;
-    private Category category;
+    private ProductCategory category;
     private String description;
     private double price;
     private Unit unit;
@@ -20,12 +20,11 @@ public @Data class Product extends BaseDomainObject<ProductDocument> {
     private int unitInStock;
     private ProductStatus status;
     private String city;
-    private Date createdAt;
 
     public Product(){}
 
-    public Product(String name, Category category, String description, double price, Unit unit,
-                   Producer producer, int unitInStock, ProductStatus status, String city, Date createdAt) {
+    public Product(String name, ProductCategory category, String description, double price, Unit unit,
+                   Producer producer, int unitInStock, ProductStatus status, String city) {
 
         this.Id = UUID.randomUUID();
         this.name = name;
@@ -37,7 +36,7 @@ public @Data class Product extends BaseDomainObject<ProductDocument> {
         this.unitInStock = unitInStock;
         this.status = status;
         this.city = city;
-        this.createdAt = createdAt;
+        this.createdAt = new Date();
     }
 
     @Override
@@ -67,7 +66,7 @@ public @Data class Product extends BaseDomainObject<ProductDocument> {
 
         this.Id = productDocument.getId();
         this.name = productDocument.getName();
-        this.category = Category.values()[productDocument.getCategory()];
+        this.category = ProductCategory.values()[productDocument.getCategory()];
         this.description = productDocument.getDescription();
         this.price = productDocument.getPrice();
         this.unit = Unit.values()[productDocument.getUnit()];

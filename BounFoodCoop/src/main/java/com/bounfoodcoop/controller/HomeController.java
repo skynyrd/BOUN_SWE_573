@@ -1,6 +1,6 @@
 package com.bounfoodcoop.controller;
 
-import com.bounfoodcoop.domain.Category;
+import com.bounfoodcoop.domain.ProductCategory;
 import com.bounfoodcoop.domain.Product;
 import com.bounfoodcoop.domain.ProductStatus;
 import com.bounfoodcoop.domain.representation.ProductListRepresentation;
@@ -61,7 +61,7 @@ public class HomeController {
     @RequestMapping("/admin/productInventory/addProduct")
     public String addProduct(Model model){
         Product product = new Product();
-        product.setCategory(Category.WHITE_MEAT);
+        product.setCategory(ProductCategory.WHITE_MEAT);
         product.setStatus(ProductStatus.ACTIVE);
 
         model.addAttribute("product", new ProductRepresentation(product));

@@ -4,6 +4,7 @@ import com.bounfoodcoop.repository.documents.ProducerDocument;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Date;
 import java.util.UUID;
 
 @EqualsAndHashCode(callSuper = true)
@@ -24,6 +25,7 @@ public @Data class Producer extends BaseDomainObject<ProducerDocument> {
         this.firmName = firmName;
         this.telephoneNumber = telephoneNumber;
         this.city = city;
+        this.createdAt = new Date();
     }
 
     @Override
@@ -36,6 +38,7 @@ public @Data class Producer extends BaseDomainObject<ProducerDocument> {
         producerDocument.setFirmName(this.firmName);
         producerDocument.setTelephoneNumber(this.telephoneNumber);
         producerDocument.setCity(this.city);
+        producerDocument.setCreatedAt(this.createdAt);
 
         return producerDocument;
     }
@@ -49,5 +52,6 @@ public @Data class Producer extends BaseDomainObject<ProducerDocument> {
         this.firmName = producerDocument.getFirmName();
         this.telephoneNumber = producerDocument.getTelephoneNumber();
         this.city = producerDocument.getCity();
+        this.createdAt = producerDocument.getCreatedAt();
     }
 }

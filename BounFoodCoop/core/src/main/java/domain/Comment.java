@@ -2,10 +2,12 @@ package domain;
 
 import documents.CommentDocument;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 import java.util.UUID;
 
+@EqualsAndHashCode(callSuper = true)
 public @Data
 class Comment extends BaseDomainObject<CommentDocument>{
     private String title;

@@ -2,10 +2,12 @@ package documents;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
+@EqualsAndHashCode(callSuper = true)
 @Document
 public @Data class ProductDocument extends DocumentObject {
     private String name;

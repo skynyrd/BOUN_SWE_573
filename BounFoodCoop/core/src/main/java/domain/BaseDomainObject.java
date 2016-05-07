@@ -1,6 +1,6 @@
-package com.bounfoodcoop.domain;
+package domain;
 
-import com.bounfoodcoop.repository.documents.DocumentObject;
+import documents.DocumentObject;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;

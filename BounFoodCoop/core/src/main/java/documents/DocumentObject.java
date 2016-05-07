@@ -1,9 +1,8 @@
-package com.bounfoodcoop.repository.documents;
+package documents;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
-
 
 import java.util.Date;
 import java.util.UUID;

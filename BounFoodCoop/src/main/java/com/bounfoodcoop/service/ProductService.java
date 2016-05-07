@@ -1,8 +1,8 @@
 package com.bounfoodcoop.service;
 
-import com.bounfoodcoop.domain.Product;
-import com.bounfoodcoop.repository.documents.ProductDocument;
 import com.bounfoodcoop.repository.IProductRepository;
+import documents.ProductDocument;
+import domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

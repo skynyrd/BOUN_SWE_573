@@ -6,7 +6,10 @@
 	<groupId>com.bounfoodcoop</groupId>
 	<artifactId>bounfoodcoop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<modules>
+		<module>domain</module>
+	</modules>
+	<packaging>pom</packaging>
 
 	<name>bounFoodCoop</name>
 	<description>Bogazici University Food Coop</description>
@@ -46,6 +49,11 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.8</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.bounfoodcoop</groupId>
+			<artifactId>domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	

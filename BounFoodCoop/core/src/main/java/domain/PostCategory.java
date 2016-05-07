@@ -1,10 +1,10 @@
-package com.bounfoodcoop.domain;
+package domain;
 
-public enum Unit {
-    Kg(0), Gram(1), Package(2), Quantity(3);
+public enum PostCategory {
+    ANNOUNCEMENT(0), NEWS(1), ACTIVITY(2);
 
     private int value;
-    Unit(int value) {
+    PostCategory(int value) {
         this.value = value;
     }
 

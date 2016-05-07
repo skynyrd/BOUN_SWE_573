@@ -1,11 +1,11 @@
 package com.bounfoodcoop.service;
 
-import com.bounfoodcoop.domain.*;
 import com.bounfoodcoop.repository.ICommentRepository;
 import com.bounfoodcoop.repository.IPostRepository;
 import com.bounfoodcoop.repository.IProducerRepository;
-import com.bounfoodcoop.repository.documents.ProductDocument;
 import com.bounfoodcoop.repository.IProductRepository;
+import documents.ProductDocument;
+import domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +48,7 @@ public class DataLoader {
 
         Post post = new Post("Organik Tavuklar Kooperatifimize Ulaştı","İzmir'den " +
                 "gelen organik bütün tavuklarımız kooperatifimize ulaşmış bulunmaktadır.",
-                commentsOfPost,PostCategory.NEWS);
+                commentsOfPost, PostCategory.NEWS);
 
         postRepository.save(post.ToDocument());
         commentRepository.save(comment.ToDocument());

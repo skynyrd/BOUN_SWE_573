@@ -1,4 +1,4 @@
-package com.bounfoodcoop.repository.documents;
+package documents;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,7 +1,7 @@
 package com.bounfoodcoop.service;
 
-import com.bounfoodcoop.domain.Producer;
 import com.bounfoodcoop.repository.IProducerRepository;
+import domain.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

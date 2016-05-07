@@ -1,8 +1,7 @@
-package com.bounfoodcoop.repository.documents;
+package documents;
 
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document

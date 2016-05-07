@@ -1,6 +1,6 @@
-package com.bounfoodcoop.domain;
+package domain;
 
-import com.bounfoodcoop.repository.documents.CommentDocument;
+import documents.CommentDocument;
 import lombok.Data;
 
 import java.util.Date;

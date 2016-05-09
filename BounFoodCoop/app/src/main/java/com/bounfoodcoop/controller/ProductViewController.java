@@ -2,8 +2,6 @@ package com.bounfoodcoop.controller;
 
 import com.bounfoodcoop.service.ProductService;
 import domain.Product;
-import domain.ProductCategory;
-import domain.ProductStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,14 +15,15 @@ import java.util.UUID;
 
 
 @Controller
-public class HomeController {
+public class ProductViewController {
 
     private ProductService productService;
 
-    public HomeController(ProductService productService) {
+    public ProductViewController(ProductService productService) {
         this.productService = productService;
     }
 
+    //Homepage
     @RequestMapping("/")
     public String home(Model model){
         Product promotedProduct = productService.getPromotedProduct("Kars Gravyeri");
@@ -32,7 +31,7 @@ public class HomeController {
         return "views/index";
     }
 
-    @RequestMapping("/productList")
+    @RequestMapping("/product/all")
     public String getAllProducts(Model model){
         List<Product> allProducts = productService.getAllProducts();
         model.addAttribute("products", new ProductListRepresentation(allProducts));
@@ -44,28 +43,5 @@ public class HomeController {
         Product product = productService.getById(UUID.fromString(productId));
         model.addAttribute("product", new ProductRepresentation(product));
         return "views/productDetail";
-    }
-
-    @RequestMapping("/admin")
-    public String adminPage(){
-        return "views/admin";
-    }
-
-    @RequestMapping("/admin/productInventory")
-    public String productInventory(Model model){
-        List<Product> products = productService.getAllProducts();
-        model.addAttribute("products", new ProductListRepresentation(products));
-        return "views/adminProductList";
-    }
-
-    @RequestMapping("/admin/productInventory/addProduct")
-    public String addProduct(Model model){
-        Product product = new Product();
-        product.setCategory(ProductCategory.WHITE_MEAT);
-        product.setStatus(ProductStatus.ACTIVE);
-
-        model.addAttribute("product", new ProductRepresentation(product));
-
-        return "views/addProduct";
     }
 }

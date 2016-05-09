@@ -1,9 +1,13 @@
 package com.bounfoodcoop.service;
 
 import com.bounfoodcoop.repository.IProducerRepository;
+import documents.ProducerDocument;
 import domain.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProducerService {
@@ -21,4 +25,11 @@ public class ProducerService {
         return producer;
     }
 
+    public List<Producer> getAll(){
+        return producerRepository.findAllByOrderByCreatedAtDesc().stream().map(pd -> {
+            Producer producer = new Producer();
+            producer.Load(pd);
+            return producer;
+        }).collect(Collectors.toList());
+    }
 }

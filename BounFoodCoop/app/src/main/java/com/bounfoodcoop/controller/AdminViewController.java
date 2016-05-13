@@ -6,11 +6,14 @@ import domain.ProductCategory;
 import domain.ProductStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import representation.ProductListRepresentation;
 import representation.ProductRepresentation;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
@@ -34,13 +37,16 @@ public class AdminViewController {
         return "views/adminProductList";
     }
 
-    @RequestMapping("/productInventory/addProduct")
+    @RequestMapping(value = "/productInventory/addProduct", method = RequestMethod.GET)
     public String addProduct(Model model){
-        Product product = new Product();
-        product.setCategory(ProductCategory.WHITE_MEAT);
-        product.setStatus(ProductStatus.ACTIVE);
+        model.addAttribute("product", new ProductRepresentation());
 
-        model.addAttribute("product", new ProductRepresentation(product));
+        return "views/addProduct";
+    }
+    @RequestMapping(value = "/productInventory/addProduct", method = RequestMethod.POST)
+    public String addProduct(@ModelAttribute ProductRepresentation product, Model model){
+
+        model.addAttribute("product", product);
 
         return "views/addProduct";
     }

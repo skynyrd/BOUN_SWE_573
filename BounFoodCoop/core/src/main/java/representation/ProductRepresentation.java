@@ -22,6 +22,9 @@ public class ProductRepresentation {
     public @Getter @Setter String city;
     public @Getter @Setter String createdAt;
 
+    public ProductRepresentation() {
+    }
+
     public ProductRepresentation(Product product){
         this.id = product.getId().toString();
         this.name = product.getName();

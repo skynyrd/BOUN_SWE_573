@@ -42,6 +42,9 @@
                             <a th:href="@{/product/id/{id}(id=${product.id})}">
                                 <span class="glyphicon glyphicon-info-sign"></span>
                             </a>
+                            <a th:href="@{/admin/productInventory/deleteProduct/id/{id}(id=${product.id})}">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
                         </td>
                     </tr>
                 </div>

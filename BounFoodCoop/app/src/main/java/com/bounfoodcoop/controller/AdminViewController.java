@@ -7,6 +7,7 @@ import domain.ProductStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import representation.ProductListRepresentation;
@@ -43,12 +44,22 @@ public class AdminViewController {
 
         return "views/addProduct";
     }
+
     @RequestMapping(value = "/productInventory/addProduct", method = RequestMethod.POST)
     public String addProduct(@ModelAttribute ProductRepresentation product, Model model){
 
         model.addAttribute("product", product);
 
-        return "views/addProduct";
+        productService.addProduct(product);
+
+        return "redirect:/admin/productInventory/";
     }
 
+    @RequestMapping(value = "/productInventory/deleteProduct/id/{productId}", method = RequestMethod.GET)
+    public String deleteProduct(@PathVariable UUID productId){
+
+        productService.deleteProduct(productId);
+
+        return "redirect:/admin/productInventory/";
+    }
 }

@@ -18,49 +18,59 @@
             <form action="#" th:action="@{/admin/productInventory/addProduct}" th:object="${product}" method="post">
                 <div class="row">
                     <fieldset>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label th:for="name">Ürün İsmi</label>
                             <input type="text" class="form-control" th:field="*{name}"/>
                         </div>
-                        <div class="form-group col-md-3 col-md-offset-1">
-                            <label th:for="name">Ürün Kategorisi</label>
-                            <select id="product" class="form-control" th:field="*{category}">
-                                <option value="" th:text="#{common.select.prompt}"></option>
-                                <option th:each="p : ${productList}" th:value="${p.id}" th:text="${p.name}"></option>
+                        <div class="form-group col-md-4">
+                            <label th:for="category">Ürün Kategorisi</label>
+                            <select id="category" class="form-control" th:field="*{category}">
+                                <option value="0" th:text="Kırmızı_Et"></option>
+                                <option value="1" th:text="Beyaz_Et"></option>
+                                <option value="2" th:text="Süt_Ürünü"></option>
+                                <option value="3" th:text="Sebze"></option>
+                                <option value="4" th:text="Meyve"></option>
+                                <option value="5" th:text="Diğer"></option>
                             </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label th:for="unitInStock">Stok</label>
+                            <input type="text" class="form-control" th:field="*{unitInStock}"/>
                         </div>
                     </fieldset>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label th:for="name">Ürün Açıklaması</label>
+                        <label th:for="description">Ürün Açıklaması</label>
                         <textarea type="textarea" class="form-control" rows="5" th:field="*{description}"/>
                     </div>
                 </div>
                 <div class="row">
                     <fieldset>
                         <div class="form-group col-md-3">
-                            <label th:for="name">Fiyat</label><br/>
+                            <label th:for="price">Fiyat</label><br/>
                             <input type="text" class="form-control" th:field="*{price}"/>
                         </div>
                         <div class="form-group col-md-3">
-                            <label th:for="name">Birim</label>
-                            <select id="product" class="form-control" th:field="*{category}">
-                                <option value="" th:text="#{common.select.prompt}"></option>
-                                <option th:each="p : ${productList}" th:value="${p.id}" th:text="${p.name}"></option>
+                            <label th:for="unit">Birim</label>
+                            <select id="unit" class="form-control" th:field="*{unit}">
+                                <option value="0" th:text="Kilogram"></option>
+                                <option value="1" th:text="Gram"></option>
+                                <option value="2" th:text="Paket"></option>
+                                <option value="3" th:text="Adet"></option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label th:for="name">Ürün Durumu</label>
-                            <select id="product" class="form-control" th:field="*{category}">
-                                <option value="" th:text="#{common.select.prompt}"></option>
-                                <option th:each="p : ${productList}" th:value="${p.id}" th:text="${p.name}"></option>
+                            <label th:for="status">Ürün Durumu</label>
+                            <select id="status" class="form-control" th:field="*{status}">
+                                <option value="1" th:text="Aktif"></option>
+                                <option value="0" th:text="Pasif"></option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label th:for="name">Menşei</label><br/>
-                            <input type="text" class="form-control" th:field="*{name}"/>
+                            <label th:for="city">Menşei</label><br/>
+                            <input type="text" class="form-control" th:field="*{city}"/>
                         </div>
                     </fieldset>
                 </div>

@@ -1,10 +1,14 @@
 package com.bounfoodcoop.service;
 
+import com.bounfoodcoop.repository.IProducerRepository;
 import com.bounfoodcoop.repository.IProductRepository;
+import documents.ProducerDocument;
 import documents.ProductDocument;
-import domain.Product;
+import domain.*;
+import domain.exception.ProductNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import representation.ProductRepresentation;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,9 +19,12 @@ public class ProductService {
 
     @Autowired
     private IProductRepository productRepository;
+    @Autowired
+    private IProducerRepository producerRepository;
 
-    public ProductService(IProductRepository productRepository) {
+    public ProductService(IProductRepository productRepository, IProducerRepository producerRepository) {
         this.productRepository = productRepository;
+        this.producerRepository = producerRepository;
     }
 
     public Product getById(UUID uuid){
@@ -43,5 +50,27 @@ public class ProductService {
         Product product = new Product();
         product.Load(productRepository.findByName(name));
         return product;
+    }
+
+    public void addProduct(ProductRepresentation productRepresentation) {
+        Producer producer = new Producer("Mahmut", "Tuncer", "Bireysel", "66464", "Mersin");
+        producerRepository.save(producer.ToDocument());
+
+        Product product = new Product(productRepresentation.getName(),
+                 ProductCategory.values()[productRepresentation.getCategory()],
+                productRepresentation.getDescription(),
+                productRepresentation.getPrice(),
+                Unit.values()[productRepresentation.getUnit()],
+                producer,
+                productRepresentation.getUnitInStock(),
+                ProductStatus.values()[productRepresentation.getStatus()],
+                productRepresentation.getCity()
+                );
+
+        productRepository.save(product.ToDocument());
+    }
+
+    public void deleteProduct(UUID productId) {
+        productRepository.delete(productId);
     }
 }

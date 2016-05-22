@@ -1,6 +1,6 @@
-package representation;
+package com.bounfoodcoop.core.representation;
 
-import domain.Product;
+import com.bounfoodcoop.core.domain.Product;
 import lombok.Getter;
 import lombok.Setter;
 

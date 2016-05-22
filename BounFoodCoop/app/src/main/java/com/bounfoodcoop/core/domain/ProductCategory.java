@@ -1,4 +1,4 @@
-package domain;
+package com.bounfoodcoop.core.domain;
 
 public enum ProductCategory {
     RED_MEAT(0), WHITE_MEAT(1), DAIRY(2), VEGETABLE(3), FRUIT(4), OTHER(5);

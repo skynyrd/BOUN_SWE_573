@@ -1,13 +1,13 @@
 package com.bounfoodcoop.controller;
 
 import com.bounfoodcoop.service.ProductService;
-import domain.Product;
+import com.bounfoodcoop.core.domain.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import representation.ProductListRepresentation;
-import representation.ProductRepresentation;
+import com.bounfoodcoop.core.representation.ProductListRepresentation;
+import com.bounfoodcoop.core.representation.ProductRepresentation;
 
 import java.io.IOException;
 import java.util.List;

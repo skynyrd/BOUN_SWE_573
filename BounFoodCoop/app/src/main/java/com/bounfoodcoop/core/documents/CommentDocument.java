@@ -1,4 +1,4 @@
-package documents;
+package com.bounfoodcoop.core.documents;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

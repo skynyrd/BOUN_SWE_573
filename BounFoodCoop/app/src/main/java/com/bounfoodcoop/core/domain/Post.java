@@ -1,6 +1,6 @@
-package domain;
+package com.bounfoodcoop.core.domain;
 
-import documents.PostDocument;
+import com.bounfoodcoop.core.documents.PostDocument;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -2,13 +2,11 @@ package com.bounfoodcoop.service;
 
 import com.bounfoodcoop.repository.IProducerRepository;
 import com.bounfoodcoop.repository.IProductRepository;
-import documents.ProducerDocument;
-import documents.ProductDocument;
-import domain.*;
-import domain.exception.ProductNotFoundException;
+import com.bounfoodcoop.core.documents.ProductDocument;
+import com.bounfoodcoop.core.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import representation.ProductRepresentation;
+import com.bounfoodcoop.core.representation.ProductRepresentation;
 
 import java.util.List;
 import java.util.UUID;

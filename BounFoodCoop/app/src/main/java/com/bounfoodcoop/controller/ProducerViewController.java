@@ -5,7 +5,7 @@ import com.bounfoodcoop.service.ProducerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import representation.ProducerListRepresentation;
+import com.bounfoodcoop.core.representation.ProducerListRepresentation;
 
 @Controller
 @RequestMapping("/producer")

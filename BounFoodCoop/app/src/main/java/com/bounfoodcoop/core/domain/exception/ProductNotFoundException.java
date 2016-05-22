@@ -1,4 +1,4 @@
-package domain.exception;
+package com.bounfoodcoop.core.domain.exception;
 
 import lombok.extern.log4j.Log4j;
 

@@ -1,6 +1,6 @@
 package com.bounfoodcoop.repository;
 
-import documents.ProducerDocument;
+import com.bounfoodcoop.core.documents.ProducerDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

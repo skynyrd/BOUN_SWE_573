@@ -1,4 +1,4 @@
-package domain;
+package com.bounfoodcoop.core.domain;
 
 public enum PostCategory {
     ANNOUNCEMENT(0), NEWS(1), ACTIVITY(2);

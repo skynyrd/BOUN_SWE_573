@@ -1,4 +1,4 @@
-package domain;
+package com.bounfoodcoop.core.domain;
 
 public enum Unit {
     Kg(0), Gram(1), Package(2), Quantity(3);

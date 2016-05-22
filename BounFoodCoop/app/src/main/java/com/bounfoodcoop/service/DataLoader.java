@@ -4,8 +4,8 @@ import com.bounfoodcoop.repository.ICommentRepository;
 import com.bounfoodcoop.repository.IPostRepository;
 import com.bounfoodcoop.repository.IProducerRepository;
 import com.bounfoodcoop.repository.IProductRepository;
-import documents.ProductDocument;
-import domain.*;
+import com.bounfoodcoop.core.documents.ProductDocument;
+import com.bounfoodcoop.core.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

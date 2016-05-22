@@ -1,4 +1,4 @@
-package domain;
+package com.bounfoodcoop.core.domain;
 
 public enum ProductStatus {
     ACTIVE(1), PASSIVE(0);
